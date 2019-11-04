@@ -14,7 +14,7 @@ before_install:
   - docker run -p 127.0.0.1:80:4567 -d loopback
   - docker ps -a
 
-script: bundle exec rake test
+script: npm run test
 install: npm install
 
 branches:
@@ -24,7 +24,8 @@ branches:
 # before_deploy:
 deploy:
   provider: script
-  script: docker push mohamedragabessa/loopbacktravis
+  script: docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
+    docker push mohamedragabessa/loopbacktravis
   on:
     branch: master
     # loopback:latest

@@ -26,7 +26,7 @@ branches:
 deploy:
   provider: script
   script:
-   docker tag loopbacktravis:latest mohamedragabessa/loopbacktravis:latest
+   docker tag mohamedragabessa/loopbacktravis:latest mohamedragabessa/loopbacktravis:latest
    docker push mohamedragabessa/loopbacktravis
   on:
     branch: master

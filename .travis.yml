@@ -23,8 +23,7 @@ deploy:
   provider: script
   script:
    echo "$(DOCKER_PASSWORD)" | docker login -u "$(DOCKER_USERNAME)" --password-stdin
-   docker tag $(DOCKER_IMAGE_NAME) mohamedragabessa/$(DOCKER_IMAGE_NAME):latest
-   docker push mohamedragabessa/$(DOCKER_IMAGE_NAME):latest
+   docker push mohamedragabessa/$(DOCKER_IMAGE_NAME)
 
   #  docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" 
 

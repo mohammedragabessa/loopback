@@ -24,7 +24,7 @@ branches:
 # before_deploy:
 deploy:
   provider: script
-  script: docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
+  script: docker tag node/loopback:latest mohamedragabessa/loopbacktravis:latest
     docker push mohamedragabessa/loopbacktravis
   on:
     branch: master

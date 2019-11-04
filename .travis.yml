@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 
-cache: npm 
+cache: npm
 
 node_js:
   - '10'
@@ -21,11 +21,11 @@ branches:
 deploy:
   provider: script
   script:
-   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  #  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
    docker push mohamedragabessa/loopbacktravis
-   
+
   #  docker tag mohamedragabessa/loopbacktravis:latest mohamedragabessa/loopbacktravis:v0.0.1
-  # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&  
+  # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&
   on:
     branch: master
 

@@ -24,7 +24,3 @@ deploy:
    docker push mohamedragabessa/loopbacktravis
   on:
     branch: master
-
-# after_deploy:
-
-# export TRAVIS_WORKER_DOCKER_BINDS='/var/run/docker.sock:/var/run/docker.sock'

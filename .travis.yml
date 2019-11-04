@@ -9,6 +9,13 @@ node_js:
 services:
  - docker
 
+ before_install:
+  - docker build -t loopback .
+  - docker run -p 3000:3000 -d loopback
+  - docker ps -a
+  - docker run -p 3000:3000 -d loopback
+
+
 script: npm run test
 install: npm install
 
@@ -20,7 +27,6 @@ branches:
 deploy:
   provider: script
   script:
-   docker build
    docker push mohamedragabessa/loopbacktravis
   on:
     branch: master

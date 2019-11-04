@@ -21,8 +21,9 @@ branches:
 deploy:
   provider: script
   script:
-   docker tag mohamedragabessa/loopbacktravis:latest mohamedragabessa/loopbacktravis:v0.0.1
-   docker push mohamedragabessa/loopbacktravis:latest
+   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  #  docker tag mohamedragabessa/loopbacktravis:latest mohamedragabessa/loopbacktravis:v0.0.1
+   docker push mohamedragabessa/loopbacktravis
    
 
   # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&  

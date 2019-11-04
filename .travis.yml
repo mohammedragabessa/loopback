@@ -20,7 +20,7 @@ branches:
 
 deploy:
   provider: script
-  script: docker push USER/REPO
+  script: docker push mohamedragabessa/loopbacktravis:latest
   # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&  
   on:
     branch: master

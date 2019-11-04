@@ -17,11 +17,16 @@ branches:
     - master
 
 # before_deploy:
-
+DOCKER_IMAGE_NAME=loopbacktravis
+DOCKER_IMAGE_TAG=latest
 deploy:
   provider: script
   script:
-   docker push mohamedragabessa/loopbacktravis
+   echo "$(DOCKER_PASSWORD)" | docker login -u "$(DOCKER_USERNAME)" --password-stdin
+   docker tag $(DOCKER_IMAGE_NAME) mohamedragabessa/$(DOCKER_IMAGE_NAME):latest
+   docker push mohamedragabessa/$(DOCKER_IMAGE_NAME):latest
+
+  #  docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" 
 
   #  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 

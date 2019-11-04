@@ -15,7 +15,7 @@ before_install:
   - docker ps -a
 
 
-script: - bundle exec rake test
+script: bundle exec rake test
 install: npm install
 
 branches:

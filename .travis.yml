@@ -20,7 +20,11 @@ branches:
 
 deploy:
   provider: script
-  script: docker push mohamedragabessa/loopbacktravis:latest
+  script:
+   docker tag local-image:latest loopbacktravis:latest
+   docker push mohamedragabessa/loopbacktravis:latest
+   
+
   # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&  
   on:
     branch: master

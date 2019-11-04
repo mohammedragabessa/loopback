@@ -9,7 +9,7 @@ node_js:
 services:
  - docker
 
- before_install:
+before_install:
   - docker build -t loopback .
   - docker run -p 3000:3000 -d loopback
   - docker ps -a

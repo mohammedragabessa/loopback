@@ -13,7 +13,6 @@ before_install:
   - docker build -t loopback .
   - docker run -p 127.0.0.1:80:4567 -d loopback
   - docker ps -a
-  - docker run -p 127.0.0.1:80:4567 -d loopback
 
 
 script: npm run test

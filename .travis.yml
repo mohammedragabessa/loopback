@@ -21,11 +21,11 @@ branches:
   only:
     - master
 
-# before_deploy:
+before_deploy: docker login -u "$DOCKER_USERNAME"
+
 deploy:
   provider: script
-  script: docker login -u "$DOCKER_USERNAME"
-    docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
+  script: docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
     docker push mohamedragabessa/loopbacktravis:latest
   on:
     branch: master

@@ -21,7 +21,7 @@ branches:
   only:
     - master
 
-before_deploy: echo $DOCKER_PASSWORD
+before_deploy: docker login -u $DOCKER_USERNAME
 
 deploy:
   provider: script

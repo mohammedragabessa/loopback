@@ -24,8 +24,7 @@ branches:
 # before_deploy:
 deploy:
   provider: script
-  script:
-    echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  script: docker login
     docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
     docker push mohamedragabessa/loopbacktravis:latest
   on:

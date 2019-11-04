@@ -13,6 +13,7 @@ before_install:
   - docker build -t loopback .
   - docker run -p 127.0.0.1:80:4567 -d loopback:latest
   - docker ps -a
+  - docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
 
 script: npm run test
 install: npm install
@@ -25,8 +26,7 @@ before_deploy: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --passwo
 
 deploy:
   provider: script
-  script: docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
-    docker push mohamedragabessa/loopbacktravis:latest
+  script: docker push mohamedragabessa/loopbacktravis:latest
   on:
     branch: master
     # loopback:latest

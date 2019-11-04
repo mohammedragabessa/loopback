@@ -1,7 +1,7 @@
-import {LoopbackApplication} from './application';
-import {ApplicationConfig} from '@loopback/core';
+import { LoopbackApplication } from './application';
+import { ApplicationConfig } from '@loopback/core';
 
-export {LoopbackApplication};
+export { LoopbackApplication };
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new LoopbackApplication(options);
@@ -9,7 +9,7 @@ export async function main(options: ApplicationConfig = {}) {
   await app.start();
 
   const url = app.restServer.url;
-  console.log(`Server is running at ${url}`);
+  console.log(`Server is running at with docker ${url}`);
   console.log(`Try ${url}/ping`);
 
   return app;

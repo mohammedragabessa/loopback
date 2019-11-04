@@ -17,12 +17,10 @@ branches:
     - master
 
 # before_deploy:
-DOCKER_IMAGE_NAME=loopbacktravis
-DOCKER_IMAGE_TAG=latest
 deploy:
   provider: script
   script:
-   docker push mohamedragabessa/$(DOCKER_IMAGE_NAME)
+   docker push mohamedragabessa/loopbacktravis
   on:
     branch: master
 

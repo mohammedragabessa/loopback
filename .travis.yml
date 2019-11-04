@@ -27,7 +27,7 @@ deploy:
   script:
     echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
-    docker push mohamedragabessa/loopbacktravis
+    docker push mohamedragabessa/loopbacktravis:latest
   on:
     branch: master
     # loopback:latest

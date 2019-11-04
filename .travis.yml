@@ -20,8 +20,8 @@ branches:
 deploy:
   provider: script
   script:
-   docker build -t loopback .
-   docker push mohamedragabessa/loopbacktravis
+  docker build - < Dockerfile
+  docker push mohamedragabessa/loopbacktravis
   on:
     branch: master
 

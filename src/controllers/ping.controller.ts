@@ -64,4 +64,19 @@ export class PingController {
     };
   }
 
+  @get('/addsome', {
+    responses: {
+      '200': PING_RESPONSE,
+    },
+  })
+  addsome(): object {
+    // Reply with a greeting, the current time, the url, and request headers
+    return {
+      greeting: 'welcomr addsome',
+      date: new Date(),
+      url: this.req.url,
+      headers: Object.assign({}, this.req.headers),
+    };
+  }
+
 }

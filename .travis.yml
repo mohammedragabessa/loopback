@@ -26,6 +26,7 @@ branches:
     - master
 
 before_deploy:
+  - gem install travis
   - travis encrypt AWS_ACCESS_KEY_ID=AKIAUO7KR6QP7H26BTB7 --add
   - travis encrypt AWS_SECRET_ACCESS_KEY=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 --add
 # echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin

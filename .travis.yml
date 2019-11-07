@@ -10,10 +10,13 @@ services:
   - docker
 
 before_install:
-  - docker build -t loopback .
-  - docker run -p 127.0.0.1:80:4567 -d loopback:latest
-  - docker ps -a
-  - docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  # - docker build -t loopback .
+  # - docker run -p 127.0.0.1:80:4567 -d loopback:latest
+  # - docker ps -a
+  # - docker tag loopback:latest mohamedragabessa/loopbacktravis:latest
+
 
 script: npm run test
 install: npm install
@@ -22,11 +25,19 @@ branches:
   only:
     - master
 
-before_deploy: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+before_deploy:
+  - travis encrypt AWS_ACCESS_KEY_ID=AKIAUO7KR6QP7H26BTB7 --add
+  - travis encrypt AWS_SECRET_ACCESS_KEY=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 --add
+# echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 
 deploy:
   provider: script
-  script: docker push mohamedragabessa/loopbacktravis:latest
+  script:
+  - eval $(aws ecr get-login --region us-east-2)
+  - docker-compose build
+  - docker tag org/web:latest 307045200927.dkr.ecr.us-east-2.amazonaws.com/org/web:latest
+  - docker push 307045200927.dkr.ecr.us-east-2.amazonaws.com/org/web:latest
+  # docker push mohamedragabessa/loopbacktravis:latest
   on:
     branch: master
     # loopback:latest

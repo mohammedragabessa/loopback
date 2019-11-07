@@ -12,7 +12,7 @@ services:
 before_install:
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
-  - eval $(aws ecr get-login --region us-east-2)
+  - eval $(aws ecr get-login --no-include-email --region us-east-2)
   - docker build -t org/web .
   - docker run -p 127.0.0.1:80:4567 -d org/web:latest
   - docker tag org/web:latest 307045200927.dkr.ecr.us-east-2.amazonaws.com/org/web:latest

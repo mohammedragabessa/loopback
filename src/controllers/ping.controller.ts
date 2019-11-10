@@ -64,19 +64,4 @@ export class PingController {
     };
   }
 
-  @get('/aloha', {
-    responses: {
-      '200': PING_RESPONSE,
-    },
-  })
-  aloha(): object {
-    // Reply with a greeting, the current time, the url, and request headers
-    return {
-      greeting: 'aloha integrated with aws ECR   safae',
-      date: new Date(),
-      url: this.req.url,
-      headers: Object.assign({}, this.req.headers),
-    };
-  }
-
 }

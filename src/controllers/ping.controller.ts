@@ -63,20 +63,4 @@ export class PingController {
       headers: Object.assign({}, this.req.headers),
     };
   }
-
-  @get('/welcome1', {
-    responses: {
-      '200': PING_RESPONSE,
-    },
-  })
-  welcome1(): object {
-    // Reply with a greeting, the current time, the url, and request headers
-    return {
-      greeting: 'welcom1 to ci cd travis and dockerhub  dd welcome 1 ',
-      date: new Date(),
-      url: this.req.url,
-      headers: Object.assign({}, this.req.headers),
-    };
-  }
-
 }

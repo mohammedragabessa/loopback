@@ -22,6 +22,7 @@ branches:
   only:
     - master
 
+before_deploy: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 deploy:
   provider: script
   script: docker push mohamedragabessa/loopbacktravis:latest
